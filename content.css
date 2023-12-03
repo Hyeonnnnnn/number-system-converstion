@@ -1,0 +1,24 @@
+.input-group > select.form-select.form-select-lg {
+    width: 30px;
+    height: 70px;
+  }
+  
+  .input-group > input.form-control.form-control-lg {
+    width: 400px;
+    height: 70px;
+  }
+  
+  .input-group > button.btn.btn-primary {
+    width: 150px;
+    height: 70px;
+  }
+  .form-control-lg {
+    width: 600px;
+    height: 100px;
+  }
+
+  #convertedResult, #inputNum {
+    text-align: center;
+    font-size: 30px;
+  }
+  
