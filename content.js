@@ -40,21 +40,25 @@ select2.addEventListener('change', (event) => {
   previouslyDisabledOption2 = select1.querySelector(`[value="${selectedOption}"]`);
 });
 
+function validateNumber() {
+  let inputNum = document.getElementById('inputNum').value.trim();
+  let fromSystem = select1.value;
+
+  if (fromSystem === "1" && !/^[01]+$/.test(inputNum)) {
+    document.getElementById('inputNum').value = inputNum.slice(0, -1);
+  } else if (fromSystem === "2" && !/^\d+$/.test(inputNum)) {
+    document.getElementById('inputNum').value = inputNum.slice(0, -1);
+  } else if (fromSystem === "3" && !/^[0-7]+$/.test(inputNum)) {
+    document.getElementById('inputNum').value = inputNum.slice(0, -1);
+  } else if (fromSystem === "4" && !/^[0-9A-Fa-f]+$/.test(inputNum)) {
+    document.getElementById('inputNum').value = inputNum.slice(0, -1);
+  }
+}
+
 function convert() {
   const select1Value = select1.value;
   const select2Value = select2.value;
   const inputNum = document.getElementById('inputNum').value;
-
-  const isValidInput =
-    (select1Value === '1' && /^[01]+$/.test(inputNum)) ||
-    (select1Value === '2' && /^\d+$/.test(inputNum)) ||
-    (select1Value === '3' && /^[0-7]+$/.test(inputNum)) ||
-    (select1Value === '4' && /^[0-9A-Fa-f]+$/.test(inputNum));
-
-  if (!isValidInput) {
-    document.getElementById('convertedResult').value = "NaN";
-    return;
-  }
 
   if (select1Value === select2Value) {
     document.getElementById('convertedResult').value = inputNum;
